@@ -1,7 +1,8 @@
 # HearthStone Child Theme
 
 A WordPress child theme for the commercial **HearthStone** parent theme by G5Plus
-(tested against parent version 1.8).
+(tested against parent version 1.8). It powers the Gallery at Marina Square site
+in Morro Bay, California.
 
 The child theme holds all site-specific changes. The parent theme stays
 unmodified, so you can update it without loss of customizations.
@@ -12,7 +13,7 @@ unmodified, so you can update it without loss of customizations.
 | ---------------- | -------------------------------------------------------------- |
 | `style.css`      | Theme header (WordPress needs this) and custom CSS              |
 | `functions.php`  | Custom PHP: style enqueue, translations, comment control        |
-| `screenshot.png` | Theme thumbnail shown in Appearance > Themes (1200x900)         |
+| `screenshot.png` | Theme thumbnail shown in Appearance > Themes (1200x900)        |
 
 ## Requirements
 
@@ -88,5 +89,3 @@ necessary.
 GPL-2.0-or-later. See [LICENSE](LICENSE).
 
 The parent theme is commercial software from G5Plus and is not included here.
-The `screenshot.png` and the `style.css` header credits come from the parent
-theme's child-theme starter package.

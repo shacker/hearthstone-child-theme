@@ -1,15 +1,19 @@
 /*
  Theme Name:   HearthStone Child Theme
- Theme URI:    http://themes.g5plus.net/hearthStone/
- Description:  HearthStone Child Theme
- Author:       G5plus
- Author URI:   http://g5plus.net
+ Theme URI:    https://github.com/shacker/hearthstone-child-theme
+ Description:  Child theme for the HearthStone parent theme by G5Plus. Holds all
+               site-specific CSS and PHP customizations.
+ Author:       Scot Hacker
+ Author URI:   https://github.com/shacker
  Template:     hearthstone
- Version:      1.0
+ Version:      1.1
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
-Tags: 				two-columns, three-columns, left-sidebar, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-header, custom-menu, editor-style, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, accessibility-ready
-Text Domain: 		g5plus-hearthstone
+ Text Domain:  g5plus-hearthstone
+ Tags:         two-columns, three-columns, left-sidebar, right-sidebar, fixed-layout,
+               responsive-layout, custom-background, custom-header, custom-menu,
+               editor-style, post-formats, rtl-language-support, sticky-post,
+               theme-options, translation-ready, accessibility-ready
 */
 /************************************************************************************
 Put your custom CSS below this block :)
