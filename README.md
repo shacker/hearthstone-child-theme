@@ -14,6 +14,7 @@ unmodified, so you can update it without loss of customizations.
 | `style.css`      | Theme header (WordPress needs this) and custom CSS              |
 | `functions.php`  | Custom PHP: style enqueue, translations, comment control        |
 | `screenshot.png` | Theme thumbnail shown in Appearance > Themes (1200x900)        |
+| `.htaccess`      | Stops Apache serving dot files if the theme is a git clone      |
 
 ## Requirements
 
@@ -83,6 +84,11 @@ The theme runs in three places: a local Docker WordPress install, a staging
 site and a production site. Deploy with git, or copy the files to
 `wp-content/themes/hearthstone-child/` on the server. No build step is
 necessary.
+
+If you deploy by clone, the `.git` directory sits inside the web root. The
+included `.htaccess` file stops Apache from serving it. On a server that does
+not read `.htaccess` files (nginx, for example), add an equivalent rule to the
+server configuration.
 
 ## License
 

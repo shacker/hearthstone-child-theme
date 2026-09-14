@@ -1,0 +1,7 @@
+# The theme directory is a git clone. Apache must not serve the repository
+# metadata or any other dot file that lands here.
+RedirectMatch 404 /\.git
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
