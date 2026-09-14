@@ -81,14 +81,53 @@ To keep comments on pages, delete the function and its `add_filter()` call.
 ## Deployment
 
 The theme runs in three places: a local Docker WordPress install, a staging
-site and a production site. Deploy with git, or copy the files to
-`wp-content/themes/hearthstone-child/` on the server. No build step is
-necessary.
+site at Dreamhost and a production site at Dreamhost. All three are git
+clones of this repository, so the code lives in one place only. There is no
+build step.
 
-If you deploy by clone, the `.git` directory sits inside the web root. The
-included `.htaccess` file stops Apache from serving it. On a server that does
-not read `.htaccess` files (nginx, for example), add an equivalent rule to the
-server configuration.
+### First-time setup on a server
+
+Log in over SSH and replace the theme directory with a clone. Keep a copy of
+the old directory until the site is confirmed good.
+
+```bash
+cd ~/<yoursite>/wp-content/themes
+mv hearthstone-child hearthstone-child.bak
+git clone https://github.com/shacker/hearthstone-child-theme.git hearthstone-child
+```
+
+The directory name must be `hearthstone-child`, because the WordPress
+database holds that name as the active theme.
+
+Then load the site. If it is correct, delete the backup:
+
+```bash
+rm -rf ~/<yoursite>/wp-content/themes/hearthstone-child.bak
+```
+
+### Later updates
+
+```bash
+cd ~/<yoursite>/wp-content/themes/hearthstone-child
+git pull
+```
+
+Do not edit theme files directly on a server. The next `git pull` will stop
+with a conflict. Make changes locally, push them, then pull on each server.
+
+### Security note
+
+A clone puts the `.git` directory inside the web root. The included
+`.htaccess` file stops Apache from serving it, and Dreamhost uses Apache. On
+a server that does not read `.htaccess` files (nginx, for example), add an
+equivalent rule to the server configuration.
+
+To confirm the block works, request this URL. It must not show the file
+contents:
+
+```
+https://<yoursite>/wp-content/themes/hearthstone-child/.git/config
+```
 
 ## License
 
