@@ -18,3 +18,89 @@
 /************************************************************************************
 Put your custom CSS below this block :)
 *************************************************************************************/
+
+/* Homepage category rows (Featured Events / Lower / Upper / Craft): put a gap
+   between the three small cards. The theme spaces them with 15px side padding
+   inside 33% floats, but the Additional CSS sets padding:0 and a card
+   background on .home article.post, so the gutters vanish and the cards touch.
+   Grid gives a true gap; the large card spans all three columns. Below 768px
+   the theme already stacks the cards full-width, so leave that alone. */
+@media (min-width: 768px) {
+  .home .post-category-inner {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 20px;
+  }
+  /* .clearfix pseudo-elements would otherwise become grid cells. */
+  .home .post-category-inner::before,
+  .home .post-category-inner::after {
+    display: none;
+  }
+  .home .post-category-inner > article {
+    float: none;
+    width: auto;
+  }
+  .home .post-category-inner > article.post-large-image {
+    grid-column: 1 / -1;
+  }
+  /* Theme default is 24px, which wraps most titles to three lines in a
+     third-width card; 18px keeps them to two. */
+  .home .post-category-inner > article.post-s-grid .entry-post-title {
+    font-size: 18px;
+  }
+  /* Large-card headline: a notch below the theme's 36px. */
+  .home .post-category-inner > article.post-large-image .entry-post-title {
+    font-size: 30px;
+  }
+}
+
+/* Inset the text in homepage cards from both side edges (the Additional
+   CSS zeroes the card padding). Applied to the text wrappers, not the
+   article, so any featured image still runs edge to edge. */
+.home article.post .entry-top,
+.home article.post .entry-content-wrap {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* 10px of breathing room at the top of each homepage card. Padded on the
+   first text wrapper rather than the article, whose padding the Additional
+   CSS zeroes with equal specificity and later load order. */
+.home article.post .entry-top,
+.home article.post-s-grid .entry-content-wrap {
+  padding-top: 10px;
+}
+
+/* Drop the short 50px rule the theme draws under small-card titles. */
+.home article.post-s-grid .entry-post-title:after {
+  display: none;
+}
+
+/* Small post cards (not events): hide the publish date and "by Gallery at
+   Marina Square" byline. Events keep their meta line, which is the event
+   date. .type-post is WordPress's post-type class, so tribe_events cards
+   (which also carry .post for styling) aren't matched. */
+.home article.type-post.post-s-grid .entry-post-meta {
+  display: none;
+}
+/* With the meta gone the title would sit on the bottom edge; match the
+   10px top padding. */
+.home article.type-post.post-s-grid .entry-content-wrap {
+  padding-bottom: 10px;
+}
+
+/* Large post cards (not events): drop the footer row - "Continue Reading",
+   comment count and byline. The title already links to the post. (The
+   event card's template doesn't output this row at all.) */
+/* ...and the publish date above the title. The event card keeps its date. */
+.home article.type-post.post-large-image .entry-meta-wrap,
+.home article.type-post.post-large-image .entry-top .entry-meta-date {
+  display: none;
+}
+
+/* Large cards: the theme's 35px excerpt margin spaced it from the footer
+   row, which none of them has any more (hidden on posts, not output on
+   events). */
+.home article.post.post-large-image .entry-excerpt {
+  margin-bottom: 15px;
+}

@@ -1,7 +1,10 @@
 <?php
 add_action( 'wp_enqueue_scripts', 'g5plus_child_theme_enqueue_styles', 1000 );
 function g5plus_child_theme_enqueue_styles() {
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'g5plus_style' ) );
+    // Version by mtime so browsers refetch whenever style.css changes
+    // (the default ?ver= is the WordPress version, which doesn't).
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'g5plus_style' ),
+        filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 
 add_action( 'after_setup_theme', 'g5plus_child_theme_setup');
